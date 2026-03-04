@@ -133,6 +133,12 @@ $result = $conn->query($sql);
                             <div class="col-12 mb-4">
                                 <div id="map" style="width: 100%; height: 250px; border-radius: 8px; background: #333;"></div>
                             </div>
+
+                            <div class="col-4 col-md-3 mb-4">
+                                <label class="form-label">Dados Bancários</label>
+                                <input id="banco" type="text" name="banco" class="form-control bg-secondary text-white border-0">
+                            </div>
+
                             <div class="d-grid">
                                 <button type="submit" class="btn btn-primary">Cadastrar Colaborador</button>
                             </div>
