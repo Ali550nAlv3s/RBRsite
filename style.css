@@ -1,0 +1,314 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+
+ .tela-login-wallpaper {
+    background-image: url("images/wallpaper/wallpaper-backgroud-.jpg");
+    background-size: cover;       /* cobre a tela toda */
+    background-position: center;  /* centraliza a imagem */
+    background-repeat: no-repeat; /* não repete */
+    
+    flex: 1;               /* ocupa toda a altura da janela */
+    width: 100vw;                 /* ocupa toda a largura */
+    
+    display: flex;                /* centraliza os elementos */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+ .tela-login-backsquare {
+
+    background-image: linear-gradient(45deg, rgba(157, 240, 255, 0.4), rgba(255, 255, 255, 0.4)); /* fundo preto com transparência */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    
+ }
+
+  .button-login {
+    background-color: #FFD740; /* cor de fundo azul */
+    color: rgb(0, 0, 0);              /* cor do texto branca */
+    padding: 10px 20px;       /* espaçamento interno */
+    border: none;             /* sem borda */
+    border-radius: 5px;       /* cantos arredondados */
+    cursor: pointer;          /* cursor de mãozinha ao passar por cima */
+    font-size: 16px;          /* tamanho da fonte */
+    transition: background-color 0.3s ease; /* transição suave ao passar o mouse */
+  }
+
+   .button-login:hover {
+    background-color: #fbff0e; /* cor de fundo ao passar o mouse */
+   }
+
+   .input-login {
+      padding: 10px;            /* espaçamento interno */
+      margin: 10px 0;           /* margem superior e inferior */
+      border: 1px solid #ffffff00;   /* borda cinza clara */
+      border-radius: 5px;       /* cantos arredondados */
+      font-size: 16px;          /* tamanho da fonte */
+      width: 100%;              /* ocupa toda a largura do container pai */
+      box-sizing: border-box;   /* inclui o padding e a borda na largura total */   
+      background-color: #ffffff;
+   }
+
+a {
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+body {
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
+.logo {
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: system-ui, Helvetica, Arial, sans-serif;
+  background: #2c2c2c;
+  min-height: 8vh; /* altura da nav bar */
+  z-index: 1000;
+}
+
+main {
+    flex: 1 0 auto; /* Faz o main crescer sem forçar os botões */
+    display: block; /* IMPORTANTE: Voltar para block impede que os botões estiquem sozinhos */
+    background: url("Wallpapers/bluefoudsna.jpg") no-repeat center center;
+    background-size: cover;
+    padding-bottom: 50px; /* Garante um espaço antes do footer */
+
+    min-height: 120vh;
+}
+
+.nav-list {
+
+  list-style: none;
+  display: flex;
+  z-index: 10000;
+}
+
+
+.nav-list li {
+
+  letter-spacing: 3px;
+  margin-left: 32px;
+}
+
+.mobile-menu {
+  cursor: pointer;
+  display: none;
+}
+
+.mobile-menu div {
+  width: 32px;
+  min-height: 2px;
+  background: white;
+  margin: 8px;
+  transition: 0.3s;
+}
+
+@media (max-width: 999px) {
+
+  .nav-list {
+    position: fixed;
+    top: 8vh;
+    right: 0;
+    width: 50vw;
+    height: calc(100vh - 8vh);
+    background: #2c2c2c;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in;
+    padding-top: 8vh;
+    justify-content: space-around;
+
+    z-index: 99999;
+  }
+
+  .nav-list li {
+    margin-left: 0;
+    opacity: 0;
+  }
+
+  .nav-list.active {
+    transform: translateX(0);
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+}
+
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.mobile-menu.active .line1 {
+  transform: rotate(-45deg) translate(-8px, 8px);
+}
+
+.mobile-menu.active .line2 {
+  opacity: 0;
+}
+
+.mobile-menu.active .line3 {
+  transform: rotate(45deg) translate(-5px, -7px);
+}
+
+iframe {
+  border: none;
+  width: 100%;
+  min-height: 100%;
+}
+
+/* Tela do Mapa */
+
+.button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+ }
+
+.map-wrapper {
+    width: 100%;
+    height: 60vh;
+    position: relative;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.map-wrapper.expandido {
+    position: fixed;
+    top: 5vh;
+    left: 5vw;
+    width: 90vw;
+    height: 90vh;
+    background: white;
+    z-index: 9999;
+    box-shadow: 0 0 40px rgba(0,0,0,0.5);
+    border-radius: 10px;
+}
+
+.map-wrapper.expandido::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: -1;
+}
+
+.fechar-mapa {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10000;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+footer {
+    flex-shrink: 0; /* Impede o footer de ser esmagado */
+    margin-top: auto; /* O segredo final para empurrar para o fundo */
+    background: #2c2c2c;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+}
+/* Container que alinha os cards */
+.container-colaboradores {
+    display: flex;
+    flex-wrap: wrap;       /* Permite pular linha se não couber */
+    gap: 20px;             /* Espaço entre os cards */
+    justify-content: flex-start; /* Alinha os cards à esquerda */
+    width: 100%;
+}
+
+/* O Card Individual */
+.card-colaborador {
+    /* Aqui está o segredo: 
+       No desktop ele tenta ocupar 23% (quase 4 por linha). 
+       No celular ele cresce para 100% 
+    */
+    flex: 1 1 calc(25% - 20px); 
+    min-width: 250px;      /* Não deixa ficar menor que 250px */
+    max-width: 320px;      /* Não deixa ficar gigante */
+    
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #eee;
+    transition: transform 0.3s ease;
+}
+
+.card-colaborador:hover {
+    transform: translateY(-5px);
+}
+
+.foto-perfil img {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    object-fit: cover;
+    background: #f0f0f0;
+}
+
+.nome-colaborador {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.btn-detalhes {
+    margin-top: 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    width: 100%;
+}
