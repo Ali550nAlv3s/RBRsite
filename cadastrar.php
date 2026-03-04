@@ -94,7 +94,7 @@ $result = $conn->query($sql);
 
                             <div class="col-4 col-md-3 mb-4">
                                 <label class="form-label">UF</label>
-                                <select id="uf_input" name="uf"  class="form-select bg-secondary text-white border-0" required>
+                                <select id="uf_input" name="uf" class="form-select bg-secondary text-white border-0" required>
                                     <option value="" selected disabled></option>
                                     <option value="AC">AC</option>
                                     <option value="AL">AL</option>
@@ -133,10 +133,16 @@ $result = $conn->query($sql);
                             <div class="col-12 mb-4">
                                 <div id="map" style="width: 100%; height: 250px; border-radius: 8px; background: #333;"></div>
                             </div>
+                            <hr class="borded-secondary">
 
+                            <div class="row">
+                            <label class="form-label"> Dados Bancários $ </label>
+                            <div class="col-4 col-md-9">
+                            <input id="Agencia" name="agencia" type="text" class=" mb-3 form-control bg-secondary text-white border-0">
+                            </div>
                             <div class="col-4 col-md-3 mb-4">
-                                <label class="form-label">Dados Bancários</label>
-                                <input id="banco" type="text" name="banco" class="form-control bg-secondary text-white border-0">
+                                <input id="Agencia" name="agencia" type="text" class=" mb-3 form-control bg-secondary text-white border-0">
+                            </div>
                             </div>
 
                             <div class="d-grid">
