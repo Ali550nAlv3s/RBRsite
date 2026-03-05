@@ -1,4 +1,37 @@
 <?php
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    include 'conn.php';
+
+    // Captura os dados
+    $cargo   = $_POST['cargo']    ?? '';
+    $setor   = $_POST['setor']    ?? '';
+    $cidade  = $_POST['cidade']   ?? '';
+    $uf      = $_POST['uf']       ?? '';
+
+    // Decide qual nome salvar
+    if (!empty($_POST['nomecompleto'])) {
+        $nome_para_banco = $_POST['nomecompleto'];
+    } else {
+        $nome_para_banco = $_POST['razaosocial'] ?? '';
+    }
+
+    // Prepared Statement — protege contra SQL Injection
+    $stmt = $conn->prepare("INSERT INTO colaboradores (nome, cargo, setor, cidade, uf) 
+                            VALUES (?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssss", $nome_para_banco, $cargo, $setor, $cidade, $uf);
+
+    if ($stmt->execute()) {
+        echo "<script>alert('Colaborador cadastrado com sucesso!'); window.location.href='colaboradores.php';</script>";
+    } else {
+        echo "Erro: " . $stmt->error;
+    }
+
+    $stmt->close();
+    $conn->close();
+}
+
+
 $tituloPagina = "Cadastrar Colaborador";
 include 'body/head.php';
 include 'body/header.php';
@@ -7,8 +40,6 @@ include 'conn.php';
 $sql = "SELECT * FROM rbr_colaboradores ORDER BY nome ASC";
 $result = $conn->query($sql);
 ?>
-
-
 
 <main class="container py-5">
     <div class="row justify-content-center">
@@ -62,20 +93,20 @@ $result = $conn->query($sql);
                                 <option value="" selected disabled>Selecione Cargo/Função</option>
                                 <option value="Regulador">Regulador</option>
                                 <option value="ProntaResposta">Pronta Resposta</option>
-                                <option value="Munck">Chapa</option>
-                                <option value="Munck">Frete</option>
+                                <option value="Chapa">Chapa</option>
+                                <option value="Frete">Frete</option>
                                 <option value="Munck">Munck</option>
-                                <option value="Diretor">Vigia Armado</option>
+                                <option value="Vigia">Vigia Armado</option>
                                 <option value="Outro">Outro</option>
                             </select>
-                            <input type="text" name="cargo" class="form-control bg-secondary text-white border-0" placeholder="Outro? Descreva..." required>
+                            <input type="text" name="cargonome" class="form-control bg-secondary text-white border-0" placeholder="Outro? Descreva..." required>
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">Contatos</label>
-                            <input type="text" id="telefone" name="contatos" class="form-control bg-secondary text-white border-0 mb-2" placeholder="(00) 00000-0000" required>
+                            <input type="text" id="telefone" name="contato" class="form-control bg-secondary text-white border-0 mb-2" placeholder="(00) 00000-0000" required>
 
-                            <input type="text" id="telefone2" name="contatos" class="form-control bg-secondary text-white border-0 mb-2" placeholder="(00) 00000-0000" required>
+                            <input type="text" id="telefone2" name="contato2" class="form-control bg-secondary text-white border-0 mb-2" placeholder="(00) 00000-0000" required>
                         </div>
 
                         <div class="mb-3">
@@ -85,7 +116,7 @@ $result = $conn->query($sql);
                         <div class="row">
                             <div class="mb-3">
                                 <label class="form-label">Endereço</label>
-                                <input id="endereco_google" type="text" name="endereco" class="form-control bg-secondary text-white border-0">
+                                <input id="endereco" type="text" name="endereco" class="form-control bg-secondary text-white border-0">
                             </div>
                             <div class="col-8 col-md-9">
                                 <label class="form-label">Cidade</label>
@@ -158,36 +189,7 @@ $result = $conn->query($sql);
             </div>
 </main>
 
-<?php
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    include 'conn.php';
-
-    // Captura os dados comuns
-
-    $cargo = $_POST[''];
-    $setor = $_POST['setor'];
-    $cidade = $_POST['cidade'];
-    $uf = $_POST['uf'];
-
-    // Lógica para decidir qual nome salvar na coluna 'nome' da tabela
-    if (!empty($_POST['nomecompleto'])) {
-        $nome_para_banco = $_POST['nomecompleto'];
-    } else {
-        $nome_para_banco = $_POST['razaosocial']; // Se for PJ, usa a Razão Social
-    }
-
-    $sql = "INSERT INTO colaboradores (nome, cargo, setor, cidade, uf) 
-            VALUES ('$nome_para_banco', '$cargo', '$setor', '$cidade', '$uf')";
-
-    if ($conn->query($sql) === TRUE) {
-        echo "<script>alert('Colaborador cadastrado com sucesso!'); window.location.href='colaboradores.php';</script>";
-    } else {
-        echo "Erro: " . $conn->error;
-    }
-    $conn->close();
-}
-?>
 
 <?php
 include 'body/footer.php';
