@@ -2,7 +2,7 @@
  $tituloPagina = "Processos";
  include 'body/head.php';
  include 'body/header.php';
- include 'conn.php';
+ include 'config/conn.php';
 ?>
 
 <main>

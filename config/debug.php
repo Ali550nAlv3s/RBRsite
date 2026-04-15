@@ -1,5 +1,5 @@
 <?php
-include 'conn.php';
+include 'config/conn.php';
 
 echo"<h1> Disgnóstico de Conexão com o Banco de Dados </h1>";
 

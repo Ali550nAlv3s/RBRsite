@@ -1,7 +1,7 @@
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    include 'conn.php';
+    include 'config/conn.php';
 
     // Captura os dados
     $cargo   = $_POST['cargo']    ?? '';

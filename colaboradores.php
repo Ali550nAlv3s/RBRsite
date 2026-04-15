@@ -2,7 +2,7 @@
  $tituloPagina = "Colaboradores";
  include 'body/head.php';
  include 'body/header.php';
- include 'conn.php';
+ include 'config/conn.php';
 
  $sql = "SELECT * FROM rbr_colaboradores ORDER BY nome ASC";
  $result = $conn->query($sql);
