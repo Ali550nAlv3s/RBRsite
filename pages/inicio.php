@@ -1,8 +1,8 @@
 <?php
  $tituloPagina = "Tela Inicial";
- include 'body/head.php';
- include 'body/header.php';
- include 'config/conn.php';
+require_once '../body/head.php';
+require_once '../body/header.php';
+require_once '../config/conn.php';
 ?>
 
 <main>
@@ -239,6 +239,6 @@
 
 
 <?php 
- include 'body/footer.php';
- include 'body/scripts.php';
+ require_once '../body/footer.php';
+ require_once '../body/scripts.php';
 ?>

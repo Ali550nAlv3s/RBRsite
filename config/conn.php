@@ -26,7 +26,7 @@ if ($conn->connect_error) {
 
 /* 
 
-A partir daqui é a verificação das tabelas 
+Verificação de tabelas
 
 */
 

@@ -1,8 +1,8 @@
 <?php
  $tituloPagina = "Mapa";
- include 'body/head.php';
- include 'body/header.php';
- include 'config/conn.php';
+ include '../body/head.php';
+ include '../body/header.php';
+ include '../config/conn.php';
 ?>
 
 <main class="container">
@@ -19,6 +19,6 @@
 </main>
 
 <?php 
- include 'body/footer.php';
- include 'body/scripts.php';
+ include '../body/footer.php';
+ include '../body/scripts.php';
 ?>

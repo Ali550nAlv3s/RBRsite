@@ -1,7 +1,6 @@
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    include 'config/conn.php';
 
     // Captura os dados
     $cargo   = $_POST['cargo']    ?? '';
@@ -33,9 +32,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 $tituloPagina = "Cadastrar Colaborador";
-include 'body/head.php';
-include 'body/header.php';
-include 'conn.php';
+include '../body/head.php';
+include '../body/header.php';
+include '../config/conn.php';
 
 $sql = "SELECT * FROM rbr_colaboradores ORDER BY nome ASC";
 $result = $conn->query($sql);
@@ -192,6 +191,6 @@ $result = $conn->query($sql);
 
 
 <?php
-include 'body/footer.php';
-include 'body/scripts.php';
+include '../body/footer.php';
+include '../body/scripts.php';
 ?>

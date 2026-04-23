@@ -1,8 +1,8 @@
 <?php
  $tituloPagina = "Colaboradores";
- include 'body/head.php';
- include 'body/header.php';
- include 'config/conn.php';
+ include '../body/head.php';
+ include '../body/header.php';
+ include '../config/conn.php';
 
  $sql = "SELECT * FROM rbr_colaboradores ORDER BY nome ASC";
  $result = $conn->query($sql);
@@ -53,6 +53,6 @@
     </main>
 
 <?php 
- include 'body/footer.php';
- include 'body/scripts.php';
+ include '../body/footer.php';
+ include '../body/scripts.php';
 ?>
